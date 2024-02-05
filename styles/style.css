@@ -35,10 +35,10 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  background-color: var(--background-color);
+  background-color: var(--background-color, #ffffff);
   background-image: var(--bag-image);
-  color: var(--main-color);
-  font-family: var(--main-font);
+  color: var(--main-color, #000000);
+  font-family: var(--main-font, "Inter", sans-serif);
   /*margin: 102px 372px 104px;*/
   margin-block-start: 102px;
   display: flex;
@@ -53,14 +53,15 @@
   flex-direction: column;
   align-items: center;
   margin-block-end: 104px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, "Press Start 2P", sans-serif);
   gap: 20px;
   text-transform: uppercase;
-  border: 2px solid var(--main-color);
-  background: var(--background-color);
+  border: 2px solid var(--main-color, #000000);
+  background: var(--background-color, #ffffff);
   /*inline-size: 48.5vw;*/
   inline-size: clamp(371px, 48.5vw, 696px);
-  height: 364px;
+  /*height: 38.5vh;*/
+  block-size: clamp(327px, 38.5vh, 368px);
 }
 
 .header h1 {
@@ -144,57 +145,41 @@
   width: 100%;
 }
 
-/*main {
-  
-  inline-size: 48.5vw;
-}*/
-
 .content {
   /*margin-block-end: 53px;*/
   /*inline-size: 48.5vw;*/
   inline-size: clamp(371px, 48.5vw, 696px);
-  border: 2px solid var(--main-color);
-  background-color: var(--background-color);
+  border: 2px solid var(--main-color, #000000);
+  background-color: var(--background-color, #ffffff);
   position: relative;
-}
-
-/*@media (width <= 600px) {
-  .content {
-    inline-size: 100%;
-  }
-}*/
-
-.content {
   margin-block-end: 51px;
 }
 
-.div-image {
-  border-bottom: 2px solid var(--main-color);
-  border-top: 2px solid var(--main-color);
-}
-
 .image {
-  /*block-size: 48.3vw;
-  inline-size:  48.3vw;*/
+  /*inline-size:  48.3vw;*/
   inline-size: 100%;
   object-fit: contain;
   object-position: center;
   position: relative;
+  border-bottom: 2px solid var(--main-color, #000000);
+  border-top: 2px solid var(--main-color, #000000);
+  /*aspect-ratio: 1/1;
+  display: block;*/
 }
 
 .layble {
   position: absolute;
   z-index: 2;
-  font-family: var(--accent-font);
-  color: var(--main-color);
-  font-weight: var(--font-width-main);
+  font-family: var(--accent-font, "Press Start 2P", sans-serif);
+  color: var(--main-color, #000000);
+  font-weight: var(--font-width-main, 400);
   text-transform: lowercase;
   font-size: 14px;
   opacity: 0.5;
   mix-blend-mode: hard-light;
   inset-inline-end: 2vw;
   padding-top: 4%;
-  text-shadow: 1px var(--background-color);
+  text-shadow: 1px var(--background-color, #ffffff);
 }
 
 .uprc {
@@ -203,28 +188,29 @@
 
 @supports (-webkit-text-stroke: 1px var(--background-color)) {
   .layble {
-    -webkit-text-stroke: 1px var(--background-color);
+    -webkit-text-stroke: 1px var(--background-color, #ffffff);
   }
 }
 
 .content-text {
-  padding: 5px 25px;
+  padding: 25px;
   font-size: 18px;
   font-weight: var(--font-width-main);
   /*position: relative;*/
 }
 
-.content-text p {
-  padding-block-start: 25px;
+.content-text p:first-of-type {
+  padding-block-end: 25px;
 }
 
 .content-button {
-  background-color: var(--background-color);
-  border: 2px solid var(--main-color);
-  padding: 9px 33px;
+  background-color: var(--background-color, #ffffff);
+  border: 2px solid var(--main-color, #000000);
+  /*padding: 9px 33px;*/
+  inline-size: 130px;
   /* padding: 17px 62px;*/
-  font-family: var(--accent-font);
-  color: var(--main-color);
+  font-family: var(--accent-font, "Press Start 2P", sans-serif);
+  color: var(--main-color, #000000);
   /* margin: 1.5vw 0 1.7vw 37.6vw;*/
   font-size: 14px;
   position: relative;
@@ -240,7 +226,8 @@
 .button {
   display: flex;
   justify-content: end;
-  margin: 1.5vw 1.6vw 1.7vw 0;
+  /*margin: 1.5vw 1.6vw 1.7vw 0;*/
+  margin: 0 25px 25px 0;
 }
 
 .content-button:focus {
@@ -275,7 +262,7 @@
     box-shadow: none;
   }
   to {
-    box-shadow: 2px 2px 0 var(--main-color);
+    box-shadow: 2px 2px 0 var(--main-color, #000000);
   }
 }
 
@@ -288,7 +275,10 @@
   font-family: inherit;
 }
 
-.floopy {
+.floppy {
+  width: 21px;
+  height: 21px;
+  margin-right: 1px;
 }
 
 .content h3 {
@@ -299,14 +289,32 @@
 }
 
 .footer-button {
-  margin-bottom: 105px;
-  padding: 15px 22px;
+  margin-bottom: 82px;
+  /*inline-size: 23.5vw;
+  block-size: clamp(55px,5.5vh,84px)*/
+  block-size: 55px;
+  inline-size: clamp(306px, 23.5vw, 335px);
+}
+
+@media (width <= 375px) {
+  .content-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .floppy {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-button {
+    block-size: 84px;
+  }
 }
 
 .button-floppy {
   mix-blend-mode: difference;
   color: var(--button-text);
-
   z-index: 2;
 }
 
@@ -367,6 +375,7 @@
 
 .like-icon.is-liked.is-liked .heart {
   animation: scale 0.1s 0.3s ease-in alternate;
+  transform-origin: center;
 }
 
 @keyframes scale {
@@ -405,8 +414,8 @@ dialog[open] {
   width: 357px;
   height: 193px;
   border: 2px solid var(--main-color, #000);
-  background: /*transparent;*/ var(--background-color, #FFF);
-  font-family: var(--accent-font);
+  background: /*transparent;*/ var(--background-color, #fff);
+  font-family: var(--accent-font, "Press Start 2P", sans-serif);
   color: var(--main-color, #000);
   font-family: "Press Start 2P";
   font-size: 14px;
@@ -414,7 +423,7 @@ dialog[open] {
   line-height: 150%; /* 21px */
   text-transform: uppercase;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 89px 198px 66px;
   grid-template-rows: repeat(2, 1fr);
   justify-items: center;
   align-items: center;
@@ -433,25 +442,23 @@ dialog[open] {
 
 .dialog-text {
   grid-row: 1;
-  grid-column: 2/4;
+  grid-column: 2/3;
+  align-self: end;
 }
 
 .dialog-floppy {
   width: 39px;
   height: 39px;
+  align-self: center;
+  margin: 23px 0 0 7px;
 }
 
 .dialog-button .content-button {
-  padding: 11px 134px 11px 134px;
+  padding: 11px 149px 11px 142px;
   text-transform: uppercase;
 }
 
 /*----------ФИЛЬТРЫ-----------------*/
-
-.floppy {
-  width: 21px;
-  height: 21px;
-}
 
 .filter-sepia {
   filter: sepia(80%);
