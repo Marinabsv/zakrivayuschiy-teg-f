@@ -12,3 +12,123 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+@keyframes opacity {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.6;
+    }
+  }
+
+@keyframes shadow {
+    from {
+      box-shadow: none;
+    }
+    to {
+      box-shadow: 2px 2px 0 var(--main-color, #000000);
+    }
+  }
+
+  @keyframes arrow {
+    from {
+      inset-inline-end: 100%;
+    }
+  
+    to {
+      inset-inline-end: 96%;
+    }
+  }
+
+
+.sparks {
+    opacity: 0;
+  }
+  
+  .card__icon-button {
+    background-color: transparent;
+    cursor: pointer;
+    border: transparent;
+  }
+
+  .card__icon-button:focus {
+    outline: none;
+  }
+
+  .card__icon-button:focus-visible {
+    border: 2px solid var(--main-color, #000000);
+    transition: border 0.3s ease;
+  }
+
+  .heart .main-body {
+    fill: transparent;
+    transition: fill 0.3s linear;
+  }
+  
+  .heart:hover .main-body {
+    fill: var(--color-heart-contour);
+    transition: fill 0.3s linear 0.05s;
+  }
+  
+  .heart .core {
+    fill: transparent;
+    transition: fill 0.3s linear 0.03s;
+  }
+  
+  .heart:hover .core {
+    fill: var(--color-heart-contour);
+    transition: fill 0.3s linear;
+  }
+  
+  .heart:active .core {
+    fill: var(--color-heart);
+    transition: fill 0.3s linear;
+  }
+  
+  .heart:active .main-body {
+    fill: var(--color-heart);
+    transition: fill 0.3s linear 0.05s;
+  }
+  
+  .like-icon.is-liked .core {
+    fill: var(--color-heart);
+    transition: fill 0.3s linear;
+  }
+  
+  .like-icon.is-liked .contour {
+    fill: var(--color-heart);
+    transition: fill 0.3s linear 0.06s;
+  }
+  
+  .like-icon.is-liked .main-body {
+    fill: var(--color-heart);
+    transition: fill 0.3s linear 0.06s;
+  }
+  
+  .like-icon.is-liked.is-liked .heart {
+    animation: scale 0.1s 0.3s ease-in alternate;
+    transform-origin: center;
+  }
+  
+  @keyframes scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+  
+  .like-icon.is-liked.is-liked .sparks {
+    animation: sparks 0.3s 0.3s ease-in alternate;
+  }
+  
+  @keyframes sparks {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
