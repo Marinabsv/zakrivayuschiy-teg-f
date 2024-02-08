@@ -50,14 +50,16 @@
   inline-size: clamp(371px, 48.5vw, 696px);
   /*height: 38.5vh;*/
   block-size: clamp(327px, 38.5vh, 368px);
+  padding: 0 8px 0 15px;
+}
+
+.header p {
+  /*font-size: clamp(49px,4rem,65px);*/
+  margin-block-start: 110px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .header h1 {
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  margin-block-start: 112px;
-}
-
-.header h2 {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
@@ -70,10 +72,11 @@
   background-color: transparent;
   border: none;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .theme-menu__item:not(:last-of-type) {
-  padding-bottom: 14px;
+  padding-bottom: 9px;
 }
 
 .theme-menu__item {
@@ -122,6 +125,7 @@
   background-color: var(--background-color, #ffffff);
   position: relative;
   margin-block-end: 51px;
+  line-height: 21px;
 }
 
 .image {
@@ -338,6 +342,16 @@ dialog[open] {
   .dialog-floppy {
     margin: 25px 0 0 17px;
   }
+
+  .header p {
+    margin-block-start: 93px;
+  }
+  
+}
+
+.div-button {
+  display: flex;
+  justify-content: center;
 }
 
 /*----------ФИЛЬТРЫ-----------------*/
